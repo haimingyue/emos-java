@@ -24,7 +24,7 @@ public class TestController {
     }
     @PostMapping("/addUser")
     @ApiOperation("添加用户")
-    @RequiresPermissions(value = {"ROOT", "USER:ADD"}, logical = Logical.OR)
+    @RequiresPermissions(value = {"A", "B"}, logical = Logical.OR)
     public R addUser() {
         return R.ok("用户添加成功");
     }
