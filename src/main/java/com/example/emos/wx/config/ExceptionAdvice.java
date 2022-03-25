@@ -4,6 +4,7 @@ package com.example.emos.wx.config;
 import com.example.emos.wx.exception.EmosException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.UnauthenticatedException;
+import org.apache.shiro.authz.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -34,9 +35,9 @@ public class ExceptionAdvice {
             // 取出异常消息
             return emosException.getMsg();
         }
-        else if (e instanceof UnauthenticatedException) {
+        else if (e instanceof UnauthorizedException) {
             // 未授权的类型
-            return "你不具有相关权限";
+            return "你不具备相关权限";
         }
         else {
             // 普通的java异常
